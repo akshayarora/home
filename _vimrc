@@ -14,6 +14,8 @@ set guifont=Consolas:h12:cANSI
 highlight Normal	guifg=gray guibg=black
 " remove highlighting using <esc>
 nnoremap <esc> :noh<return><esc>
+" needed since Vim internally uses escape to represent special keys.
+nnoremap <esc>^[ <esc>^[
 
 " Help align code using regex, found online
 fun! Align_Section(regex, ...) range
