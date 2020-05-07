@@ -1,0 +1,85 @@
+set nocompatible
+filetype off
+
+set hidden
+set ruler
+set number
+
+set nobackup
+set noswapfile
+set nowritebackup
+
+set ignorecase
+
+" show status line
+set ls=2
+
+set splitbelow
+set splitright
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set autoindent
+" set smartindent
+
+"mouse stuff
+set mouse=a
+set ttymouse=xterm2
+set ttyfast
+
+syntax on
+
+set hlsearch
+set incsearch
+
+set wildmenu
+set wildmode=longest,list
+
+set directory=.,$TEMP
+set guifont=Consolas:h12:cANSI
+highlight Normal	guifg=gray guibg=black
+" GoDef
+nnoremap <C-b> :GoDef<return>
+" remove highlighting using <esc>
+nnoremap <esc> :noh<return><esc>
+" needed since Vim internally uses escape to represent special keys.
+nnoremap <esc>^[ <esc>^[
+
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:godef_split = 0
+
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"Plugin 'VundleVim/Vundle.vim'
+"Plugin 'scrooloose/nerdtree'
+"call vundle#end()
+"filetype plugin indent on
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+"Plug 'SirVer/ultisnips'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+
+call plug#end()
+
+" NERDTree
+" autocmd VimEnter * NERDTree
+nmap \ :NERDTreeToggle<CR>
+nmap \| :NERDTreeFind<CR>
+
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsSnippetDirectories = ['REPDIR/vim/snippets/']
+
+" map <silent> <Leader>u :UltiSnipsEdit<CR>
