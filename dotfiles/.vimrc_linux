@@ -1,3 +1,5 @@
+" Install vim-pug from https://github.com/junegunn/vim-plug
+"
 set nocompatible
 filetype off
 
